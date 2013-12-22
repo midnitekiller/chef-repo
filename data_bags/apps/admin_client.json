@@ -1,0 +1,41 @@
+{ "id":              "admin_client",
+
+  "repo_url":         "https://SomeGitHubUser:TheirPassword@github.com/OceanDev/admin-client.git",
+  "repo_private_key": null,
+
+  "web_server_role": "admin_client_rails_server",
+  "service":         false,
+  "host_regexp":     "(admin|staging-admin|master-admin)(-lb){0,1}.example.com",
+  "path_regexp":     null,
+  "tc_config_id":    "admin_client",
+  "force_deploy":    false,
+  
+  "db":              false,
+
+  "api_user_name":   "admin_client",
+
+  "defines_api_users": {
+
+    "admin_client": {
+      "real_name": "Admin client",
+      "email": "someone@example.com",
+      "shared_tokens": false,
+      "authentication_duration": 900,
+      "passwords": {
+        "master":  "youMUSTchangethis",
+        "staging": "youMUSTchangethis",
+        "prod":    "youMUSTchangethis"}
+    },
+
+    "admin_client_testuser": {
+      "real_name": "Admin client test user",
+      "email": "someone@example.com",
+      "shared_tokens": false,
+      "authentication_duration": 900,
+      "passwords": {
+        "master":  "youMUSTchangethis",
+        "staging": "youMUSTchangethis",
+        "prod":    "youMUSTchangethis"}
+    }
+  }
+}

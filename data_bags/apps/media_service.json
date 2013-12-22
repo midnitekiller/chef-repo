@@ -1,0 +1,87 @@
+{ "id":               "media_service",
+
+  "repo_url":          "https://SomeGitHubUser:TheirPassword@github.com/OceanDev/media.git",
+  "repo_private_key":  null,
+
+  "web_server_role":  "media_rails_server",
+  "riak_server_role": "media_riak_server",
+  "service":          true,
+  "host_regexp":      null,
+  "path_regexp":      "/v[0-9]+/(media|medium_buckets)",
+  "tc_config_id":     "media",
+  "force_deploy":     false,
+
+  "db":              {
+    "master":  {"adapter":  "postgresql",
+                "host":     "master-somehost.amazonaws.com",
+                "port":     5432,
+                "username": "myuser", 
+                "password": "mypassword",
+                "database": "media",
+                "encoding": "unicode", 
+                "pool":     5, 
+                "timeout":  5000
+               },
+    "staging": {"adapter":  "postgresql",
+                "host":     "staging-somehost.amazonaws.com",
+                "port":     5432,
+                "username": "myuser", 
+                "password": "mypassword",
+                "database": "media",
+                "encoding": "unicode", 
+                "pool":     5, 
+                "timeout":  5000
+               },
+    "prod":    {"adapter":  "postgresql",
+                "host":     "prod-somehost.amazonaws.com",
+                "port":     5432,
+                "username": "myuser", 
+                "password": "mypassword",
+                "database": "media",
+                "encoding": "unicode", 
+                "pool":     5, 
+                "timeout":  5000
+               }
+   },
+
+  "api_user_name":   "media",
+
+  "defines_api_users": {
+
+    "media": {
+      "real_name": "Media service",
+      "email": "someone@example.com",
+      "passwords": {
+        "master":  "youMUSTchangethis",
+        "staging": "youMUSTchangethis",
+        "prod":    "youMUSTchangethis"}
+    }
+  },
+
+  "structure": { 
+        "name":        "media",
+        "description": "Dynamic management of static assets",
+        "resources": [
+            { "name":        "media",
+              "description": "A Medium resource is a static asset such as an image, a sound file, a video, plain text, HTML or any type of binary data.",
+              "version":     "v1",
+              "rights": [
+                  { "description": "Medium resource God" },
+                  { "description": "Get a Medium",              "hyperlink": "self", "verb": "GET" },
+                  { "description": "Modify a Medium",           "hyperlink": "self", "verb": "PUT"},
+                  { "description": "Delete a Medium",           "hyperlink": "self", "verb": "DELETE"},
+                  { "description": "Create a Medium",           "hyperlink": "self", "verb": "POST"},
+                  { "description": "Get a collection of Media", "hyperlink": "self", "verb": "GET*"}
+                ]},
+            { "name":        "medium_buckets",
+              "description": "A MediumBucket is an administrative resource closely tied to the Riak storage backend.",
+              "version":     "v1",
+              "rights": [
+                  { "description": "MediumBucket resource God" },
+                  { "description": "Get a MediumBucket",                "hyperlink": "self", "verb": "GET" },
+                  { "description": "Delete a MediumBucket",             "hyperlink": "self", "verb": "DELETE"},
+                  { "description": "Get a collection of MediumBuckets", "hyperlink": "self", "verb": "GET*"},
+                  { "description": "Delete all MediumBuckets",          "hyperlink": "destroy_all", "verb": "DELETE"}
+                ]}
+          ]}
+}

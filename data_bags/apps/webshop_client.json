@@ -1,0 +1,41 @@
+{ "id":              "webshop_client",
+
+  "repo_url":         "https://SomeGitHubUser:TheirPassword@github.com/OceanDev/webshop-client.git",
+  "repo_private_key": null,
+
+  "web_server_role": "webshop_client_rails_server",
+  "service":         false,
+  "host_regexp":     "(master-webshop|staging-webshop|webshop)(-lb){0,1}.example.com",
+  "path_regexp":     null,
+  "tc_config_id":    "webshop_client",
+  "force_deploy":    false,
+  
+  "db":              false,
+
+  "api_user_name":   "webshop_client",
+
+  "defines_api_users": {
+
+    "webshop_client": {
+      "real_name": "Webshop client",
+      "email": "someone@example.com",
+      "shared_tokens": true,
+      "authentication_duration": 900,
+      "passwords": {
+        "master":  "youMUSTchangethis",
+        "staging": "youMUSTchangethis",
+        "prod":    "youMUSTchangethis"}
+    },
+
+    "webshop_client_testuser": {
+      "real_name": "Webshop client test user",
+      "email": "someone@example.com",
+      "shared_tokens": true,
+      "authentication_duration": 900,
+      "passwords": {
+        "master":  "youMUSTchangethis",
+        "staging": "youMUSTchangethis",
+        "prod":    "youMUSTchangethis"}
+    }
+  }
+}

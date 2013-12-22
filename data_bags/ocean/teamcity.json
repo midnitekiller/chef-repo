@@ -1,0 +1,7 @@
+{ "id": "teamcity",
+
+  "teamcity_username": "apiuser",
+  "teamcity_password": "youMUSTchangethis"
+  
+}
+

@@ -1,0 +1,44 @@
+{ "id":                "log_service",
+
+  "repo_url":          "https://SomeGitHubUser:TheirPassword@github.com/OceanDev/log.git",
+  "repo_private_key":  null,
+
+  "web_server_role":   "log_rails_server",
+  "redis_server_role": "log_redis_server",
+  "service":           true,
+  "host_regexp":       null,
+  "path_regexp":       "/v[0-9]+/log_excerpts",
+  "tc_config_id":      "log",
+  "force_deploy":      false,
+  
+  "db":                false,
+
+  "api_user_name":   "log",
+
+  "defines_api_users": {
+
+    "log": {
+      "real_name": "Log service",
+      "email": "someone@example.com",
+      "passwords": {
+        "master":  "youMUSTchangethis",
+        "staging": "youMUSTchangethis",
+        "prod":    "youMUSTchangethis"}
+    }
+  },
+
+  "structure": { 
+        "name":        "log",
+        "description": "Centralised logging",
+        "resources": [
+            { "name": "log_excerpts",
+              "description": "A LogExcerpt is a collection of log entries.",
+              "version":     "v1",
+              "rights": [
+                  { "description": "Log God" },
+                  { "description": "Get log entries",    "hyperlink": "self", "verb": "GET" },
+                  { "description": "Delete log entries", "hyperlink": "self", "verb": "DELETE" }
+                ]
+            }
+          ]}
+}

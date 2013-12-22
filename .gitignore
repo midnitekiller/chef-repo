@@ -1,0 +1,7 @@
+.rake_test_cache
+.DS_Store
+metadata.json
+.chef
+!.chef/plugins
+*.swp
+*.un~

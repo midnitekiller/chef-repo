@@ -1,0 +1,51 @@
+{ "id": "subnets",
+
+  "infra": { 
+    "a": ["subnet-00000000"],
+    "b": ["subnet-11111111"],
+    "c": ["subnet-22222222"]
+  },
+
+  "ci": { 
+    "a": ["subnet-33333333"]
+  },
+
+  "master": {
+    "b": {
+      "elb":    "subnet-44444444",
+      "shared": "subnet-55555555",
+      "apps":   ["subnet-aaaaaaaa", "subnet-bbbbbbbb", "subnet-cccccccc"]
+    },
+    "c": {
+      "elb":    "subnet-66666666",
+      "shared": "subnet-77777777",
+      "apps":   ["subnet-dddddddd", "subnet-eeeeeeee", "subnet-ffffffff"]
+    }
+  },
+
+  "staging": {
+    "b": {
+      "elb":    "subnet-88888888",
+      "shared": "subnet-99999999",
+      "apps":   ["subnet-gggggggg", "subnet-hhhhhhhh", "subnet-iiiiiiii"]
+    },
+    "c": {
+      "elb":    "subnet-aaaaaaaa",
+      "shared": "subnet-bbbbbbbb",
+      "apps":   ["subnet-jjjjjjjj", "subnet-kkkkkkkk", "subnet-llllllll"]
+    }
+  },
+
+  "prod": {
+    "b": {
+      "elb":    "subnet-cccccccc",
+      "shared": "subnet-dddddddd",
+      "apps":   ["subnet-mmmmmmmm", "subnet-nnnnnnnn", "subnet-oooooooo"]
+    },
+    "c": {
+      "elb":    "subnet-eeeeeeee",
+      "shared": "subnet-ffffffff",
+      "apps":   ["subnet-pppppppp", "subnet-qqqqqqqq", "subnet-rrrrrrrrr"]
+    }
+  }
+}

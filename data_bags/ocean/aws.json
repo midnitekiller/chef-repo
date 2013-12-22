@@ -1,0 +1,21 @@
+{ "id": "aws",
+
+  "master": {
+    "aws_access_key_id":     "YOURAWSACCESSKEYHERE",
+    "aws_secret_access_key": "YOURAWSSECRETACCESSKEYHERE",
+    "region":                "eu-west-1"
+  },
+
+  "staging": {
+    "aws_access_key_id":     "YOURAWSACCESSKEYHERE",
+    "aws_secret_access_key": "YOURAWSSECRETACCESSKEYHERE",
+    "region":                "eu-west-1"
+  },
+
+  "prod": {
+    "aws_access_key_id":     "YOURAWSACCESSKEYHERE",
+    "aws_secret_access_key": "YOURAWSSECRETACCESSKEYHERE",
+    "region":                "eu-west-1"
+  }
+}
+

@@ -1,0 +1,171 @@
+{ "id":              "auth_service",
+
+  "repo_url":         "https://SomeGitHubUser:TheirPassword@github.com/OceanDev/auth.git",
+  "repo_private_key": null,
+
+  "web_server_role": "auth_rails_server",
+  "service":         true,
+  "host_regexp":     null,
+  "path_regexp":     "/v[0-9]+/(services|resources|authentications|api_users|groups|rights|roles)",
+  "tc_config_id":    "auth",
+  "force_deploy":    false,
+  
+  "db":              {
+    "master":  {"adapter":  "postgresql",
+                "host":     "master-somehost.amazonaws.com",
+                "port":     5432,
+                "username": "myuser", 
+                "password": "mypassword",
+                "database": "auth",
+                "encoding": "unicode", 
+                "pool":     5, 
+                "timeout":  5000
+               },
+    "staging": {"adapter":  "postgresql",
+                "host":     "staging-somehost.amazonaws.com",
+                "port":     5432,
+                "username": "myuser", 
+                "password": "mypassword",
+                "database": "auth",
+                "encoding": "unicode", 
+                "pool":     5, 
+                "timeout":  5000
+               },
+    "prod":    {"adapter":  "postgresql",
+                "host":     "prod-somehost.amazonaws.com",
+                "port":     5432,
+                "username": "myuser", 
+                "password": "mypassword",
+                "database": "auth",
+                "encoding": "unicode", 
+                "pool":     5, 
+                "timeout":  5000
+               }
+   },
+
+  "api_user_name":   "auth",
+
+  "defines_api_users": {
+
+    "auth": {
+      "real_name": "Auth service",
+      "email": "someone@example.com",
+      "passwords": {
+        "master":  "youMUSTchangethis",
+        "staging": "youMUSTchangethis",
+        "prod":    "youMUSTchangethis"}
+    },
+
+    "god": {
+      "real_name": "The Ocean Superuser",
+      "email": "someone@example.com",
+      "passwords": {
+        "master":  "youMUSTchangethis",
+        "staging": "youMUSTchangethis",
+        "prod":    "youMUSTchangethis"}
+    }
+  },
+
+  "structure": { 
+        "name":        "auth",
+        "description": "Authentication and authorisation",
+        "resources": [
+            { "name":        "services",
+              "description": "The Service resource describes a service available in the SOA and the Resources it handles.",
+              "version":     "v1",
+              "rights": [
+                  { "description": "Service resource God" },
+                  { "description": "Get a Service",                "hyperlink": "self", "verb": "GET" },
+                  { "description": "Modify a Service",             "hyperlink": "self", "verb": "PUT"},
+                  { "description": "Delete a Service",             "hyperlink": "self", "verb": "DELETE"},
+                  { "description": "Create a Service",             "hyperlink": "self", "verb": "POST"},
+                  { "description": "Get a collection of Services", "hyperlink": "self", "verb": "GET*"},
+                  { "description": "Get a collection of the Service's Resources", "hyperlink": "resources", "verb": "GET"},
+                  { "description": "Create a new Resource for the Service",       "hyperlink": "resources", "verb": "POST"}
+                ]},
+            { "name":        "resources",
+              "description": "The Resource resource describes a Resource belonging to a Service, as well as the Rights it implements.",
+              "version":     "v1",
+              "rights": [
+                  { "description": "Resource resource God" },
+                  { "description": "Get a Resource",                "hyperlink": "self", "verb": "GET" },
+                  { "description": "Modify a Resource",             "hyperlink": "self", "verb": "PUT"},
+                  { "description": "Delete a Resource",             "hyperlink": "self", "verb": "DELETE"},
+                  { "description": "Get a collection of Resources", "hyperlink": "self", "verb": "GET*"},
+                  { "description": "Get a collection of the Resource's Rights",      "hyperlink": "rights", "verb": "GET"},
+                  { "description": "Create a new Right for the Resource",            "hyperlink": "rights", "verb": "POST"}
+                ]},
+            { "name":        "rights",
+              "description": "The Right resource describes an access right used for authorisation of a REST operation. Each Right belongs to a Resource.",
+              "version":     "v1",
+              "rights": [
+                  { "description": "Right resource God" },
+                  { "description": "Get a Right",                "hyperlink": "self", "verb": "GET" },
+                  { "description": "Modify a Right",             "hyperlink": "self", "verb": "PUT"},
+                  { "description": "Delete a Right",             "hyperlink": "self", "verb": "DELETE"},
+                  { "description": "Get a collection of Rights", "hyperlink": "self", "verb": "GET*"},
+                  { "description": "Get a collection of the Right's Groups",       "hyperlink": "groups", "verb": "GET"},
+                  { "description": "Get a collection of the Right's Roles",        "hyperlink": "roles", "verb": "GET"},
+                  { "description": "Connect the Right to another entity",          "hyperlink": "connect", "verb": "PUT"},
+                  { "description": "Disconnect the Right from another entity",     "hyperlink": "connect", "verb": "DELETE"}
+                ]},
+            { "name":        "roles",
+              "description": "A Role resource is an arbitrary, named combination of Rights.",
+              "version":     "v1",
+              "rights": [
+                  { "description": "Role resource God" },
+                  { "description": "Get a Role",                "hyperlink": "self", "verb": "GET" },
+                  { "description": "Modify a Role",             "hyperlink": "self", "verb": "PUT"},
+                  { "description": "Delete a Role",             "hyperlink": "self", "verb": "DELETE"},
+                  { "description": "Create a Role",             "hyperlink": "self", "verb": "POST"},
+                  { "description": "Get a collection of Roles", "hyperlink": "self", "verb": "GET*"},
+                  { "description": "Get a collection of the Roles's ApiUsers", "hyperlink": "api_users", "verb": "GET"},
+                  { "description": "Get a collection of the Roles's Groups",   "hyperlink": "groups", "verb": "GET"},
+                  { "description": "Get a collection of the Roles's Rights",   "hyperlink": "rights", "verb": "GET"},
+                  { "description": "Connect the Role to another entity",       "hyperlink": "connect", "verb": "PUT"},
+                  { "description": "Disconnect the Role from another entity",  "hyperlink": "connect", "verb": "DELETE"}
+                ]},
+            { "name":        "groups",
+              "description": "A Group resource is an arbitrary, named combination of ApiUsers, Roles, and Rights",
+              "version":     "v1",
+              "rights": [
+                  { "description": "Group resource God" },
+                  { "description": "Get a Group",                "hyperlink": "self", "verb": "GET" },
+                  { "description": "Modify a Group",             "hyperlink": "self", "verb": "PUT"},
+                  { "description": "Delete a Group",             "hyperlink": "self", "verb": "DELETE"},
+                  { "description": "Create a Group",             "hyperlink": "self", "verb": "POST"},
+                  { "description": "Get a collection of Groups", "hyperlink": "self", "verb": "GET*"},
+                  { "description": "Get a collection of the Group's ApiUsers",  "hyperlink": "api_users", "verb": "GET"},
+                  { "description": "Get a collection of the Group's Roles",     "hyperlink": "roles", "verb": "GET"},
+                  { "description": "Get a collection of the Group's Rights",    "hyperlink": "rights", "verb": "GET"},
+                  { "description": "Connect the Group to another entity",       "hyperlink": "connect", "verb": "PUT"},
+                  { "description": "Disconnect the Group from another entity",  "hyperlink": "connect", "verb": "DELETE"}
+                ]},
+            { "name":        "api_users",
+              "description": "An ApiUser is the entity for which an Authentication is made. ApiUsers can be real people, but also abstract entities such as Services or clients.",
+              "version":     "v1",
+              "rights": [
+                  { "description": "ApiUser resource God" },
+                  { "description": "Get an ApiUser",               "hyperlink": "self", "verb": "GET" },
+                  { "description": "Modify an ApiUser",            "hyperlink": "self", "verb": "PUT"},
+                  { "description": "Delete an ApiUser",            "hyperlink": "self", "verb": "DELETE"},
+                  { "description": "Create an ApiUser",            "hyperlink": "self", "verb": "POST"},
+                  { "description": "Get a collection of ApiUsers", "hyperlink": "self", "verb": "GET*"},
+                  { "description": "Get a collection of the ApiUser's Authentications",  "hyperlink": "authentications", "verb": "GET"},
+                  { "description": "Get a collection of the ApiUser's Roles",            "hyperlink": "roles", "verb": "GET"},
+                  { "description": "Get a collection of the ApiUser's Groups",           "hyperlink": "groups", "verb": "GET"},
+                  { "description": "Connect the ApiUser to another entity",              "hyperlink": "connect", "verb": "PUT"},
+                  { "description": "Disconnect the ApiUser from another entity",         "hyperlink": "connect", "verb": "DELETE"}
+                ]},
+            { "name":        "authentications",
+              "description": "An Authentication resource represents an ApiUser whose identity has been verified through its username and its hashed password.",
+              "version":     "v1",
+              "rights": [
+                  { "description": "Authentication resource God" },
+                  { "description": "Get an Authentication",               "hyperlink": "self", "verb": "GET" },
+                  { "description": "Delete an Authentication",            "hyperlink": "self", "verb": "DELETE"},
+                  { "description": "Create an Authentication",            "hyperlink": "self", "verb": "POST"}
+                ]}
+          ]}
+
+}

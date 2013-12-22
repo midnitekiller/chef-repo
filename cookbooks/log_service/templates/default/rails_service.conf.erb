@@ -1,0 +1,9 @@
+<VirtualHost *:80>
+   ServerName <%= node.ipaddress %>
+   ServerAlias <% @params[:server_aliases].each do |a| %><%= a %> <% end %>
+   DocumentRoot <%= @params[:extra][:app_dir] %>/current/public
+   <Directory <%= @params[:extra][:app_dir] %>/current/public>
+      AllowOverride all
+      Options -MultiViews
+   </Directory>
+</VirtualHost>
