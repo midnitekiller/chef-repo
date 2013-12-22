@@ -31,6 +31,8 @@ define :install_seeding_data_yml,
 
     content({'required_api_users' => users,
              'structure'          => structure}.to_yaml.gsub(/!ruby\/hash:Mash\s+/, ''))
+
+    notifies :run, "execute[update-api-users-and-structure]"
   end
 
 end
