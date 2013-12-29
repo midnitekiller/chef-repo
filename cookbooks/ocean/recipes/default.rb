@@ -20,7 +20,7 @@
 
 #
 # The following will set a default in another cookbook. In this way,
-# the Chef server URL gets propagated correctly. Also, the base domain
-# is retrieved from a databag, which can be encrypted.
+# the Chef server URL gets propagated correctly. The base domain
+# is retrieved from a databag.
 #
 node.default["chef_client"]["server_url"] = node.ocean.chef_server_url
