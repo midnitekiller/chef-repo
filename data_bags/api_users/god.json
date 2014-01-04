@@ -1,0 +1,10 @@
+{ "id":              "god",
+      
+  "real_name": "The Ocean Superuser",
+  "email":     "someone@example.com",
+  "passwords": {
+    "master":  "youMUSTchangethis",
+    "staging": "youMUSTchangethis",
+    "prod":    "youMUSTchangethis"
+  }
+}

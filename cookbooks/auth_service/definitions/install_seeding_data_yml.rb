@@ -13,6 +13,7 @@ define :install_seeding_data_yml,
     # ApiUsers ---------------------------------------------
     users = []
 
+    # ApiUsers defined in apps have lower priority
     search(:apps, "defines_api_users:*").each do |app|
       app["defines_api_users"].each do |username, data|
         password = data['passwords'][params[:chef_env]]
@@ -20,6 +21,16 @@ define :install_seeding_data_yml,
         data['password'] = password
         users << [username, data.to_hash]
       end
+    end
+
+    # ApiUsers defined in api_users have higher priority
+    search(:api_users, "*:*").each do |u|
+      username = u["id"]
+      u.delete('id')
+      password = u['passwords'][params[:chef_env]]
+      u.delete('passwords')
+      u['passwords'] = password
+      users << [username, u.to_hash]
     end
 
     # Services, Resources, Rights --------------------------
