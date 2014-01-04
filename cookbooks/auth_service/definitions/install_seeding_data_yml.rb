@@ -40,9 +40,20 @@ define :install_seeding_data_yml,
       structure << app["structure"].to_hash
     end
 
-    content({'required_api_users' => users,
-             'structure'          => structure}.to_yaml.gsub(/!ruby\/hash:Mash\s+/, ''))
+    # Roles ------------------------------------------------
+    roles = []
 
+    # Groups ------------------------------------------------
+    groups = []
+
+    # Put together the seeding file content ----------------
+    content({'required_api_users' => users,
+             'structure'          => structure,
+             'roles'              => roles,
+             'groups'             => groups
+            }.to_yaml.gsub(/!ruby\/hash:Mash\s+/, ''))
+
+    # Notify the rake tasks to run, then restart Apache ----
     notifies :run, "execute[update-api-users-and-structure]"
     notifies :reload, 'service[apache2]'
   end
