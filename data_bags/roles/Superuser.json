@@ -1,0 +1,5 @@
+{ "id": "Superuser",
+
+  "name":        "Superuser",
+  "description": "The role of a Superuser, with full access to the entire system. This role is automatically updated to always contain all wildcard Rights."
+}
