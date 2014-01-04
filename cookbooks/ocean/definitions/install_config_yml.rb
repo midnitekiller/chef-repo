@@ -36,6 +36,8 @@ define :ocean_install_config_yml,
     params[:extra].each { |k, v| cfg[k] = v } if params[:extra]
 
     content cfg.to_yaml
+
+    notifies :reload, 'service[apache2]'
   end
 
 end

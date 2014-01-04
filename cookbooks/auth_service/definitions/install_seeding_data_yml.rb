@@ -33,6 +33,7 @@ define :install_seeding_data_yml,
              'structure'          => structure}.to_yaml.gsub(/!ruby\/hash:Mash\s+/, ''))
 
     notifies :run, "execute[update-api-users-and-structure]"
+    notifies :reload, 'service[apache2]'
   end
 
 end

@@ -17,6 +17,8 @@ define :ocean_install_aws_yml, :app_dir => nil do
     }
 
     content cfg.to_yaml
+    
+    notifies :reload, 'service[apache2]'
   end
 
 end
