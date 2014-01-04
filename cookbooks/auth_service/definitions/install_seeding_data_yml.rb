@@ -42,9 +42,17 @@ define :install_seeding_data_yml,
 
     # Roles ------------------------------------------------
     roles = []
+    search(:roles, "*:*").each do |r|
+      r.delete('id')
+      roles << r.to_hash
+    end
 
     # Groups ------------------------------------------------
     groups = []
+    search(:groups, "*:*").each do |g|
+      g.delete('id')
+      groups << g.to_hash
+    end
 
     # Put together the seeding file content ----------------
     content({'required_api_users' => users,
