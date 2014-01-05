@@ -25,12 +25,15 @@ define :install_seeding_data_yml,
 
     # ApiUsers defined in api_users have higher priority
     search(:api_users, "*:*").each do |u|
+      u = u.to_hash
+      u.delete(:chef_type)
+      u.delete(:data_bag)
       username = u["id"]
       u.delete('id')
       password = u['passwords'][params[:chef_env]]
       u.delete('passwords')
-      u['passwords'] = password
-      users << [username, u.to_hash]
+      u['password'] = password
+      users << [username, u]
     end
 
     # Services, Resources, Rights --------------------------
@@ -43,15 +46,21 @@ define :install_seeding_data_yml,
     # Roles ------------------------------------------------
     roles = []
     search(:roles, "*:*").each do |r|
+      r = r.to_hash
       r.delete('id')
-      roles << r.to_hash
+      r.delete(:chef_type)
+      r.delete(:data_bag)
+      roles << r
     end
 
     # Groups ------------------------------------------------
     groups = []
     search(:groups, "*:*").each do |g|
+      g = g.to_hash
       g.delete('id')
-      groups << g.to_hash
+      g.delete(:chef_type)
+      g.delete(:data_bag)
+      groups << g
     end
 
     # Put together the seeding file content ----------------
