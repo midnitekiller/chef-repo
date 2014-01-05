@@ -1,5 +1,6 @@
 { "id": "Superuser",
 
+  "delete":      true,
   "name":        "Superuser",
-  "description": "The role of a Superuser, with full access to the entire system. This role is automatically updated to always contain all wildcard Rights."
+  "description": "This exists only to show how to delete a Role: set the 'delete' field to true."
 }

@@ -1,0 +1,6 @@
+{ "id": "DeletedGroup",
+
+  "delete":      true,
+  "name":        "DeletedGroup",
+  "description": "This exists only to show how to delete a Group: set the 'delete' field to true."
+}
