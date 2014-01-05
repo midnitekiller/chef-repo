@@ -107,9 +107,14 @@ application s[:app_name] do
 end
 
 
-execute "update-api-users-and-structure" do
+execute "update-structure" do
   action :nothing
-  command "bundle exec rake ocean:update_api_users; bundle exec rake ocean:update_god; bundle exec rake ocean:update_services_resources_and_rights"
+  command ["bundle exec rake ocean:update_api_users",
+           "bundle exec rake ocean:update_services_resources_and_rights",
+           "bundle exec rake ocean:update_roles",
+           "bundle exec rake ocean:update_groups",
+           "bundle exec rake ocean:update_god"
+          ].join("; ")
   cwd "#{s[:app_dir]}/current"
   user node[:ocean][:rails_deploy_user]
   group node[:ocean][:rails_deploy_group]

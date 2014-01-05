@@ -62,7 +62,7 @@ define :install_seeding_data_yml,
             }.to_yaml.gsub(/!ruby\/hash:Mash\s+/, ''))
 
     # Notify the rake tasks to run, then restart Apache ----
-    notifies :run, "execute[update-api-users-and-structure]"
+    notifies :run, "execute[update-structure]"
     notifies :reload, 'service[apache2]'
   end
 
