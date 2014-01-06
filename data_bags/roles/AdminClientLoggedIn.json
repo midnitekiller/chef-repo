@@ -1,0 +1,9 @@
+{ "id": "AdminClientLoggedIn",
+
+  "name":        "AdminClientLoggedIn",
+  "description": "This role has all the rights a logged-in user of the Admin Client needs (for testing).",
+
+  "exclusive": true,
+  "rights":    [{"regexp": ".+:\\*:\\*:\\*:\\*"}],
+  "api_users": ["admin_client_testuser"]
+}

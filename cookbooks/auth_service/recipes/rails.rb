@@ -112,8 +112,7 @@ execute "update-structure" do
   command ["bundle exec rake ocean:update_api_users",
            "bundle exec rake ocean:update_services_resources_and_rights",
            "bundle exec rake ocean:update_roles",
-           "bundle exec rake ocean:update_groups",
-           "bundle exec rake ocean:update_god"
+           "bundle exec rake ocean:update_groups"
           ].join("; ")
   cwd "#{s[:app_dir]}/current"
   user node[:ocean][:rails_deploy_user]

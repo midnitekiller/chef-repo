@@ -1,6 +1,6 @@
-{ "id": "Superuser",
+{ "id": "DeletedRole",
 
   "delete":      true,
-  "name":        "Superuser",
+  "name":        "DeletedRole",
   "description": "This exists only to show how to delete a Role: set the 'delete' field to true."
 }

@@ -1,0 +1,10 @@
+{ "id": "Superusers",
+
+  "name":        "Superusers",
+  "description": "The Superuser group. Superusers have the same rights as the God role.",
+
+  "rights":    [],
+  "roles":     ["God"],
+  "api_users": ["god"]
+
+}

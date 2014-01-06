@@ -1,0 +1,10 @@
+{ "id": "Developers",
+
+  "name":        "Developers",
+  "description": "The group of developers.",
+
+  "rights":    [],
+  "roles":     [],
+  "api_users": []
+
+}
