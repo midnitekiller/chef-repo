@@ -1,0 +1,9 @@
+{ "id": "WebshopClientLoggedIn",
+
+  "name":        "WebshopClientLoggedIn",
+  "description": "This role has all the rights a logged-in user of the Webshop Client needs (for testing).",
+
+  "exclusive": true,
+  "rights":    [],
+  "api_users": ["webshop_client_testuser"]
+}

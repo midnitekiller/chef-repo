@@ -1,0 +1,9 @@
+{ "id": "WebshopClientLoggedOut",
+
+  "name":        "WebshopClientLoggedOut",
+  "description": "This role has only the rights the Webshop Client needs to log in, no more.",
+
+  "exclusive": true,
+  "rights":    [],
+  "api_users": ["webshop_client"]
+}
