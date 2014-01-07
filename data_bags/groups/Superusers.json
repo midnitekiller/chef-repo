@@ -1,7 +1,8 @@
 { "id": "Superusers",
 
-  "name":        "Superusers",
-  "description": "The Superuser group. Superusers have the same rights as the God role.",
+  "name":           "Superusers",
+  "description":    "The Superuser group. Superusers have the same rights as the God role.",
+  "indestructible": true,
 
   "rights":    [],
   "roles":     ["God"],

@@ -1,7 +1,8 @@
 { "id": "AdminClientLoggedIn",
 
-  "name":        "AdminClientLoggedIn",
-  "description": "This role has all the rights a logged-in user of the Admin Client needs (for testing).",
+  "name":           "AdminClientLoggedIn",
+  "description":    "This role has all the rights a logged-in user of the Admin Client needs (for testing).",
+  "indestructible": true,
 
   "exclusive": true,
   "rights":    [{"regexp": ".+:\\*:\\*:\\*:\\*"}],

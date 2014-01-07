@@ -1,7 +1,8 @@
 { "id": "WebshopClientLoggedIn",
 
-  "name":        "WebshopClientLoggedIn",
-  "description": "This role has all the rights a logged-in user of the Webshop Client needs (for testing).",
+  "name":           "WebshopClientLoggedIn",
+  "description":    "This role has all the rights a logged-in user of the Webshop Client needs (for testing).",
+  "indestructible": true,
 
   "exclusive": true,
   "rights":    [],

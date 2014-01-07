@@ -1,7 +1,8 @@
 { "id": "AdminClientLoggedOut",
 
-  "name":        "AdminClientLoggedOut",
-  "description": "This role has only the rights the Admin Client needs to log in, no more.",
+  "name":           "AdminClientLoggedOut",
+  "description":    "This role has only the rights the Admin Client needs to log in, no more.",
+  "indestructible": true,
 
   "exclusive": true,
   "rights":    [],

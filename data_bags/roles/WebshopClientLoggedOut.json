@@ -1,7 +1,8 @@
 { "id": "WebshopClientLoggedOut",
 
-  "name":        "WebshopClientLoggedOut",
-  "description": "This role has only the rights the Webshop Client needs to log in, no more.",
+  "name":           "WebshopClientLoggedOut",
+  "description":    "This role has only the rights the Webshop Client needs to log in, no more.",
+  "indestructible": true,
 
   "exclusive": true,
   "rights":    [],

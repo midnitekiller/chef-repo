@@ -1,7 +1,8 @@
 { "id": "God",
 
-  "name":        "God",
-  "description": "The God role. May only be used by God. This role is automatically updated to always contain all wildcard Rights.",
+  "name":           "God",
+  "description":    "The God role. May only be used by God. This role is automatically updated to always contain all wildcard Rights.",
+  "indestructible": true,
 
   "exclusive": true,
   "rights":    [{"regexp": ".+:\\*:\\*:\\*:\\*"}],
