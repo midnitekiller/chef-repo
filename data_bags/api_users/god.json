@@ -6,5 +6,6 @@
     "master":  "youMUSTchangethis",
     "staging": "youMUSTchangethis",
     "prod":    "youMUSTchangethis"
-  }
+  },
+  "indestructible": true
 }

@@ -23,7 +23,9 @@
       "passwords": {
         "master":  "youMUSTchangethis",
         "staging": "youMUSTchangethis",
-        "prod":    "youMUSTchangethis"}
+        "prod":    "youMUSTchangethis"
+      },
+      "indestructible": true
     }
   },
 
