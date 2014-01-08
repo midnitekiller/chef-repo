@@ -241,9 +241,11 @@ sub handle_ban {
     if (!client.ip ~ purge) {
       error 405 "Not allowed.";
     }
-    set req.url = regsuball(req.url, "%5C", "\");
-    set req.url = regsuball(req.url, "%7C", "|");
-    set req.url = regsuball(req.url, "%3F", "?");
+    set req.url = regsuball(req.url, "(?i)%5B", "[");
+    set req.url = regsuball(req.url, "(?i)%5D", "]");
+    set req.url = regsuball(req.url, "(?i)%5C", "\");
+    set req.url = regsuball(req.url, "(?i)%7C", "|");
+    set req.url = regsuball(req.url, "(?i)%3F", "?");
     ban("obj.http.X-URL ~ " + req.url);
     error 200 "Banned";
   }
