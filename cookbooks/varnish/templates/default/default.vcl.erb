@@ -405,8 +405,8 @@ sub vcl_deliver {
       set resp.http.Age = 0;
     }
     # Remove BAN X-Host and X-Url
-    #unset resp.http.X-Host;
-    #unset resp.http.X-Url;
+    unset resp.http.X-Host;
+    unset resp.http.X-Url;
     # CORS stuff
     set resp.http.Access-Control-Allow-Origin = "*";
     set resp.http.Access-Control-Allow-Credentials = "true";
