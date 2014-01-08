@@ -241,7 +241,10 @@ sub handle_ban {
     if (!client.ip ~ purge) {
       error 405 "Not allowed.";
     }
-    ban("obj.http.X-URL ~ " + req.url);   # Regex
+    set req.url = regsuball(req.url, "%5C", "\");
+    set req.url = regsuball(req.url, "%7C", "|");
+    set req.url = regsuball(req.url, "%3F", "?");
+    ban("obj.http.X-URL ~ " + req.url);
     error 200 "Banned";
   }
 }
@@ -400,8 +403,8 @@ sub vcl_deliver {
       set resp.http.Age = 0;
     }
     # Remove BAN X-Host and X-Url
-    unset resp.http.X-Host;
-    unset resp.http.X-Url;
+    #unset resp.http.X-Host;
+    #unset resp.http.X-Url;
     # CORS stuff
     set resp.http.Access-Control-Allow-Origin = "*";
     set resp.http.Access-Control-Allow-Credentials = "true";
