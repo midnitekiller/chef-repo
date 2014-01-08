@@ -1,0 +1,12 @@
+{ "id": "ReleaseNoteReader",
+
+  "name":           "ReleaseNoteReader",
+  "description":    "This example role grants read access to all Texts in the release_notes context.",
+  "indestructible": true,
+
+  "exclusive": false,
+  "rights":    ["cms:texts:self:GET*:*:release_notes",
+                "cms:texts:self:GET:*:release_notes"
+               ],
+  "api_users": []
+}
