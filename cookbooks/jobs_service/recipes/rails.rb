@@ -45,6 +45,14 @@ ocean_install_aws_yml do
   app_dir s[:app_dir]
 end
 
+# Create the async workers' runtime directory
+directory node[:jobs_service][:async_workers_dir] do
+  owner node[:ocean][:rails_deploy_user]
+  group node[:ocean][:rails_deploy_group]
+  mode "0755"
+  action :create
+end
+
 
 # Deploy the application
 application s[:app_name] do
