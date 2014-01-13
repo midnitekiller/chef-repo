@@ -13,6 +13,8 @@ define :ocean_install_config_yml,
 
     cfg = {}
 
+    cfg['CHEF_ENV'] = params[:chef_env]
+
     cfg['APP_NAME'] = app_name
     cfg['API_USER'] = app_name
     cfg['API_PASSWORD'] = params[:app_bag]["defines_api_users"][app_name]["passwords"][params[:chef_env]]
