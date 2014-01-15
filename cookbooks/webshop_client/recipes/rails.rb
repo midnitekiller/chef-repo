@@ -83,6 +83,17 @@ application s[:app_name] do
     webapp_template "rails_service.conf.erb"
     params(:app_dir => s[:app_dir])
   end
+
+  # Precompile Rails 4 assets (only needed for client web apps)
+  before_restart do
+    execute "Precompile Rails 4 assets" do
+      command "bundle exec rake assets:precompile"
+      environment({"RAILS_ENV" => "production"})
+      cwd "#{s[:app_dir]}/current"
+      user node[:ocean][:rails_deploy_user]
+      group node[:ocean][:rails_deploy_group]
+    end
+  end
   
 end
 
