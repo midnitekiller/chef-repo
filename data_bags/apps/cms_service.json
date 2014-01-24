@@ -63,7 +63,7 @@
         "description": "Content management system",
         "resources": [
             { "name":        "texts",
-              "description": "A Text resource is a named and scoped UI string and its translations into various languages.",
+              "description": "A Text resource is a named and scoped UI string and its translation into a specific language.",
               "version":     "v1",
               "rights": [
                   { "description": "Text resource God" },
