@@ -155,9 +155,7 @@
               "version":     "v1",
               "rights": [
                   { "description": "Authentication resource God" },
-                  { "description": "Get an Authentication",               "hyperlink": "self", "verb": "GET" },
-                  { "description": "Delete an Authentication",            "hyperlink": "self", "verb": "DELETE"},
-                  { "description": "Create an Authentication",            "hyperlink": "self", "verb": "POST"}
+                  { "description": "Delete an Authentication",            "hyperlink": "self", "verb": "DELETE"}
                 ]}
           ]}
 
