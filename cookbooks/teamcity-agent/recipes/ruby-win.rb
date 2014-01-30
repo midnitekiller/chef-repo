@@ -14,9 +14,8 @@ if platform?("windows")
   end
 
   execute "Add ruby to firewall exceptions for windows 2003" do
-    if version == "5.2" # windows server 2003
-      command "netsh firewall add allowedprogram #{ruby_path}\\bin\\ruby.exe \"Ruby 2.0.0\" ENABLE"
-    end
+    command "netsh firewall add allowedprogram #{ruby_path}\\bin\\ruby.exe \"Ruby 2.0.0\" ENABLE"
+    only_if { version == "5.2" } # windows server 2003
   end
 
 else

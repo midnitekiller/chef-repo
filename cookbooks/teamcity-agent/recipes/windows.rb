@@ -68,9 +68,8 @@ if platform?("windows")
     end
 
     execute "Run service as administrator for windows 2003" do
-      if version == "5.2" # windows server 2003
-        command "sc.exe config TCBuildAgent obj= .\Administrator password= #{admin_password} type= own"
-      end
+      command "sc.exe config TCBuildAgent obj= .\Administrator password= #{admin_password} type= own"
+      only_if { version == "5.2" } # windows server 2003
     end
 
     execute "Start service" do
