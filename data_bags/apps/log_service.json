@@ -39,6 +39,7 @@
               "rights": [
                   { "description": "Log God" },
                   { "description": "Get log entries",    "hyperlink": "self", "verb": "GET" },
+                  { "description": "Create log entry",   "hyperlink": "self", "verb": "POST" },
                   { "description": "Delete log entries", "hyperlink": "self", "verb": "DELETE" }
                 ]
             }
