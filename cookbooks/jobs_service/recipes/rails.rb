@@ -56,9 +56,9 @@ end
 # Make sure the async worker daemons are stopped
 execute "bundle exec ruby lib/async_job_daemons.rb stop" do
   cwd   "#{s[:app_dir]}/current"
-  user  node[:ocean][:rails_deploy_user]
-  group node[:ocean][:rails_deploy_group]
-  not_if { !File.exists?("#{s[:app_dir]}/current") }
+  #user  node[:ocean][:rails_deploy_user]
+  #group node[:ocean][:rails_deploy_group]
+  #not_if { !File.exists?("#{s[:app_dir]}/current") }
 end
 
 
