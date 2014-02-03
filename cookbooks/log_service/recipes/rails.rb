@@ -90,6 +90,8 @@ application s[:app_name] do
             "ocean_constants.rb"  => "config/initializers/ocean_constants.rb",
             "config.yml"          => "config/config.yml"
            })
+
+  environment({"NO_ZEROMQ_LOGGING" => "true"})   # Temporary - only long polled requests should be suppressed
   
   rails do
     gems ['bundler']
