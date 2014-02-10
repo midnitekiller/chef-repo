@@ -1,0 +1,4 @@
+#!/bin/bash
+
+ocean-staging-deploy && ocean-prod-deploy
+

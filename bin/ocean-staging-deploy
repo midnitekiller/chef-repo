@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "Merging master into staging..."
+
+git checkout staging && git pull && git merge master && git push && git checkout master
+
+echo "Done. Checked out branch is now master."
+
+
+
