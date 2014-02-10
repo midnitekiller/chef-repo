@@ -1,0 +1,3 @@
+#!/bin/bash
+
+bundle update && ga && gc -m "Updated bundle." && git push
