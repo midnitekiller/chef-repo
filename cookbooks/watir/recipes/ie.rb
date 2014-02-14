@@ -16,6 +16,7 @@ if platform?("windows")
       :data => 00000000 
     }]
     action :create
+    recursive true
   end
 
   # Disable IE Security enhanced mode
@@ -26,6 +27,7 @@ if platform?("windows")
       :data => 00000000 
     }]
     action :create
+    recursive true
   end
 
   execute "Make the reg changes appear right now" do
@@ -42,6 +44,7 @@ if platform?("windows")
       :data => 3
     }]
     action :create
+    recursive true
   end
   
   registry_key "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\1" do
@@ -51,6 +54,7 @@ if platform?("windows")
       :data => 3
     }]
     action :create
+    recursive true
   end
 
   registry_key "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\2" do
@@ -60,6 +64,7 @@ if platform?("windows")
       :data => 3
     }]
     action :create
+    recursive true
   end
 
   registry_key "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\3" do
@@ -69,6 +74,7 @@ if platform?("windows")
       :data => 3
     }]
     action :create
+    recursive true
   end
 
   registry_key "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\4" do
@@ -78,6 +84,48 @@ if platform?("windows")
       :data => 3
     }]
     action :create
+    recursive true
+  end
+
+  # Disable IE first run page
+  registry_key "HKEY_CURRENT_USER\\Software\\Policies\\Microsoft\\Internet Explorer\\Main" do
+    values [{
+      :name => "DisableFirstRunCustomize",
+      :type => :dword,
+      :data => 2
+    }]
+    action :create
+    recursive true
+  end
+
+  registry_key "HKEY_CURRENT_USER\\Software\\Microsoft\\Internet Explorer\\Main" do
+    values [{
+      :name => "DisableFirstRunCustomize",
+      :type => :dword,
+      :data => 2
+    }]
+    action :create
+    recursive true
+  end
+
+  registry_key "HKEY_CURRENT_USER\\Software\\Microsoft\\Internet Explorer\\Main" do
+    values [{
+      :name => "RunOnceComplete",
+      :type => :dword,
+      :data => 1
+    }]
+    action :create
+    recursive true
+  end
+
+  registry_key "HKEY_CURRENT_USER\\Software\\Microsoft\\Internet Explorer\\Main" do
+    values [{
+      :name => "RunOnceHasShown",
+      :type => :dword,
+      :data => 1
+    }]
+    action :create
+    recursive true
   end
 
 else
