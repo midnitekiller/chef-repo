@@ -2,6 +2,7 @@ if platform?("windows")
     version = registry_get_values("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion", :x86_64).find_all{|item| item[:name] == "CurrentVersion"}[0][:data]
     agent_path = node['teamcity-agent']['win_agent_path'] 
     admin_password = node['teamcity-agent']['administrator-password'] 
+    rktools_url = node['teamcity-agent']['rktools-url'] 
 
     agent_name = node['teamcity-agent']['agent_name'] 
     if agent_name.eql?"agent-1"
@@ -67,9 +68,22 @@ if platform?("windows")
       returns [0,1] # Expect code 1 if the service already exists
     end
 
-    execute "Run service as administrator for windows 2003" do
-      command "sc.exe config TCBuildAgent obj= .\Administrator password= #{admin_password} type= own"
-      only_if { version == "5.2" } # windows server 2003
+    # Install rktools that contains the ntrights module
+    windows_package "Rktools" do
+        source rktools_url
+        installer_type :custom
+        action :install
+    end
+
+    # We have to give the Administrator user the right to start services
+    # using ntrights from the default path
+    execute "Give ServiceLogonRight to Administrator" do
+      command "\"C:\\Program Files (x86)\\Windows Resource Kits\\Tools\\ntrights.exe\" -u Administrator +r SeServiceLogonRight"
+    end
+
+    # Run TCBuildAgent as Administrator in order to bypass the numerous security issues
+    execute "Run service as administrator" do
+      command "sc.exe config TCBuildAgent obj= .\\Administrator password= #{admin_password} type= own"
     end
 
     execute "Start service" do
