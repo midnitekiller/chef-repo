@@ -7,7 +7,7 @@
       Options -MultiViews
    </Directory>
    PassengerSpawnMethod direct
-   PassengerMinInstances 3
+   PassengerMinInstances <%= node.passenger.max_pool_size %>
    PassengerHighPerformance on
 </VirtualHost>
 
