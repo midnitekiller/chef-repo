@@ -1,5 +1,7 @@
 include_recipe "watir::setup"
 
+    version = registry_get_values("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion", :x86_64).find_all{|item| item[:name] == "CurrentVersion"}[0][:data]
+
 if platform?("windows")
   bin_path = node['watir::setup']['path']
 
@@ -126,6 +128,11 @@ if platform?("windows")
     }]
     action :create
     recursive true
+  end
+
+  execute "Add IEDriverServer to firewall exceptions for windows 2003" do
+    command "netsh firewall add allowedprogram #{bin_path}\\IEDriverServer.exe \"IEDriverServer\" ENABLE"
+    only_if { version == "5.2" } # windows server 2003
   end
 
 else
