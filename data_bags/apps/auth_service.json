@@ -69,12 +69,8 @@
               "rights": [
                   { "description": "Service resource God" },
                   { "description": "Get a Service",                "hyperlink": "self", "verb": "GET" },
-                  { "description": "Modify a Service",             "hyperlink": "self", "verb": "PUT"},
-                  { "description": "Delete a Service",             "hyperlink": "self", "verb": "DELETE"},
-                  { "description": "Create a Service",             "hyperlink": "self", "verb": "POST"},
                   { "description": "Get a collection of Services", "hyperlink": "self", "verb": "GET*"},
-                  { "description": "Get a collection of the Service's Resources", "hyperlink": "resources", "verb": "GET"},
-                  { "description": "Create a new Resource for the Service",       "hyperlink": "resources", "verb": "POST"}
+                  { "description": "Get a collection of the Service's Resources", "hyperlink": "resources", "verb": "GET"}
                 ]},
             { "name":        "resources",
               "description": "The Resource resource describes a Resource belonging to a Service, as well as the Rights it implements.",
@@ -82,11 +78,8 @@
               "rights": [
                   { "description": "Resource resource God" },
                   { "description": "Get a Resource",                "hyperlink": "self", "verb": "GET" },
-                  { "description": "Modify a Resource",             "hyperlink": "self", "verb": "PUT"},
-                  { "description": "Delete a Resource",             "hyperlink": "self", "verb": "DELETE"},
                   { "description": "Get a collection of Resources", "hyperlink": "self", "verb": "GET*"},
-                  { "description": "Get a collection of the Resource's Rights",      "hyperlink": "rights", "verb": "GET"},
-                  { "description": "Create a new Right for the Resource",            "hyperlink": "rights", "verb": "POST"}
+                  { "description": "Get a collection of the Resource's Rights",      "hyperlink": "rights", "verb": "GET"}
                 ]},
             { "name":        "rights",
               "description": "The Right resource describes an access right used for authorisation of a REST operation. Each Right belongs to a Resource.",
@@ -94,8 +87,6 @@
               "rights": [
                   { "description": "Right resource God" },
                   { "description": "Get a Right",                "hyperlink": "self", "verb": "GET" },
-                  { "description": "Modify a Right",             "hyperlink": "self", "verb": "PUT"},
-                  { "description": "Delete a Right",             "hyperlink": "self", "verb": "DELETE"},
                   { "description": "Get a collection of Rights", "hyperlink": "self", "verb": "GET*"},
                   { "description": "Get a collection of the Right's Groups",       "hyperlink": "groups", "verb": "GET"},
                   { "description": "Get a collection of the Right's Roles",        "hyperlink": "roles", "verb": "GET"},
