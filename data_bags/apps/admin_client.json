@@ -19,7 +19,6 @@
     "admin_client": {
       "real_name": "Admin client",
       "email": "someone@example.com",
-      "shared_tokens": false,
       "authentication_duration": 900,
       "passwords": {
         "master":  "youMUSTchangethis",
@@ -32,7 +31,6 @@
     "admin_client_testuser": {
       "real_name": "Admin client test user",
       "email": "someone@example.com",
-      "shared_tokens": false,
       "authentication_duration": 900,
       "passwords": {
         "master":  "youMUSTchangethis",

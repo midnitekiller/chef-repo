@@ -19,7 +19,6 @@
     "webshop_client": {
       "real_name": "Webshop client",
       "email": "someone@example.com",
-      "shared_tokens": true,
       "authentication_duration": 900,
       "passwords": {
         "master":  "youMUSTchangethis",
@@ -32,7 +31,6 @@
     "webshop_client_testuser": {
       "real_name": "Webshop client test user",
       "email": "someone@example.com",
-      "shared_tokens": true,
       "authentication_duration": 900,
       "passwords": {
         "master":  "youMUSTchangethis",
