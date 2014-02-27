@@ -5,6 +5,8 @@
 # Copyright 2013, Peter Bengtson
 #
 
+import std;
+
 
 # ---------------------------------------------------------------------
 # PURGE and BAN will be allowed from these hosts.
@@ -104,6 +106,17 @@ sub vcl_recv {
       error 751 "Varnish ping";
   }
 
+  # Combine any separate X-Forwarded-For headers into one
+  if (req.restarts == 0) {
+    if (req.http.x-forwarded-for) {
+      std.collect(req.http.x-forwarded-for);
+      set req.http.X-Forwarded-For = req.http.X-Forwarded-For + ", " + client.ip;
+    } else {
+      set req.http.X-Forwarded-For = client.ip;
+    }
+  }
+
+  # Determine the type of request
   if (req.url ~ "^/v[0-9]+/") {
 
       # This is an API request. Set header.
@@ -411,3 +424,4 @@ sub vcl_deliver {
     set resp.http.Access-Control-Allow-Origin = "*";
     set resp.http.Access-Control-Allow-Credentials = "true";
 }
+d
