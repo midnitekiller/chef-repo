@@ -14,6 +14,7 @@ run_list ["recipe[ocean]",
           "recipe[teamcity-agent::firefox-win]",
           "recipe[teamcity-agent::chrome-win]",
           "recipe[teamcity-agent::safari-win]",
+          "recipe[teamcity-agent::chef]",
           "recipe[watir::ie]",
           "recipe[watir::chrome]",
          ]
