@@ -37,7 +37,7 @@
               "version":     "v1",
               "rights": [
                   { "description": "Instance God" },
-                  { "description": "Get Instances",    "hyperlink": "self", "verb": "GET*" },
+                  { "description": "Get Instances",    "hyperlink": "self", "verb": "GET*" }
                 ]
             }
           ]}
