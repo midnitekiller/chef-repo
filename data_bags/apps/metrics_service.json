@@ -1,0 +1,44 @@
+{ "id":                "metrics_service",
+
+  "repo_url":          "https://SomeGitHubUser:TheirPassword@github.com/OceanDev/metrics.git",
+  "repo_private_key":  null,
+
+  "web_server_role":   "metrics_rails_server",
+  "service":           true,
+  "host_regexp":       null,
+  "path_regexp":       "/v[0-9]+/instances",
+  "tc_config_id":      "metrics",
+  "force_deploy":      false,
+  
+  "db":                false,
+
+  "api_user_name":   "metrics",
+
+  "defines_api_users": {
+
+    "metrics": {
+      "real_name": "Metrics service",
+      "email": "someone@example.com",
+      "passwords": {
+        "master":  "youMUSTchangethis",
+        "staging": "youMUSTchangethis",
+        "prod":    "youMUSTchangethis"
+      },
+      "indestructible": true
+    }
+  },
+
+  "structure": { 
+        "name":        "metrics",
+        "description": "Metrics service",
+        "resources": [
+            { "name": "instances",
+              "description": "An Instance is an AWS virtual server instance.",
+              "version":     "v1",
+              "rights": [
+                  { "description": "Instance God" },
+                  { "description": "Get Instances",    "hyperlink": "self", "verb": "GET*" },
+                ]
+            }
+          ]}
+}
