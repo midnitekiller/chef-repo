@@ -83,7 +83,7 @@ application s[:app_name] do
     database(db_config) if db_config
   end
   
-  migration_command "bundle exec rake db:create"
+  migration_command "bundle exec rake db:create RAILS_ENV=production; bundle exec rake db:migrate RAILS_ENV=production"
   migrate true if db_config
 
   passenger_apache2 do
