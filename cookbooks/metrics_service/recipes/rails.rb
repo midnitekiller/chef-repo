@@ -103,3 +103,9 @@ logrotate_app "rails_app" do
   options    ["missingok", "copytruncate", "compress", "delaycompress", "notifempty"]
 end
 
+# # Cleanup cron task
+# cron "metrics_instance_refresh" do
+#   minute "0"
+#   command "/usr/bin/curl -X PUT http://127.0.0.1/v1/instances/refresh"
+# end
+
