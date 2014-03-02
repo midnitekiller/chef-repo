@@ -83,8 +83,8 @@ application s[:app_name] do
     database(db_config) if db_config
   end
   
-  #migration_command "bundle exec rake db:create"
-  migrate false # if db_config
+  migration_command "bundle exec rake db:create"
+  migrate true if db_config
 
   passenger_apache2 do
     webapp_template "rails_service.conf.erb"

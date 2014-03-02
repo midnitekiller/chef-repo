@@ -10,7 +10,38 @@
   "tc_config_id":      "metrics",
   "force_deploy":      false,
   
-  "db":                false,
+  "db":              {
+    "master":  {"adapter":  "postgresql",
+                "host":     "master-somehost.amazonaws.com",
+                "port":     5432,
+                "username": "myuser", 
+                "password": "mypassword",
+                "database": "metrics",
+                "encoding": "unicode", 
+                "pool":     5, 
+                "timeout":  5000
+               },
+    "staging": {"adapter":  "postgresql",
+                "host":     "staging-somehost.amazonaws.com",
+                "port":     5432,
+                "username": "myuser", 
+                "password": "mypassword",
+                "database": "metrics",
+                "encoding": "unicode", 
+                "pool":     5, 
+                "timeout":  5000
+               },
+    "prod":    {"adapter":  "postgresql",
+                "host":     "prod-somehost.amazonaws.com",
+                "port":     5432,
+                "username": "myuser", 
+                "password": "mypassword",
+                "database": "metrics",
+                "encoding": "unicode", 
+                "pool":     5, 
+                "timeout":  5000
+               }
+   },
 
   "api_user_name":   "metrics",
 
@@ -30,14 +61,15 @@
 
   "structure": { 
         "name":        "metrics",
-        "description": "Metrics service",
+        "description": "The metrics service collects and serves Ocean metrics",
         "resources": [
             { "name": "instances",
-              "description": "An Instance is an AWS virtual server instance.",
+              "description": "An Instance is an AWS virtual server instance",
               "version":     "v1",
               "rights": [
                   { "description": "Instance God" },
-                  { "description": "Get Instances",    "hyperlink": "self", "verb": "GET*" }
+                  { "description": "Get a collection of Instances", "hyperlink": "self", "verb": "GET*" }
+                  { "description": "Get an Instance",               "hyperlink": "self", "verb": "GET" }
                 ]
             }
           ]}
