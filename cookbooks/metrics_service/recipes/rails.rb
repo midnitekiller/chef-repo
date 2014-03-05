@@ -49,7 +49,7 @@ end
 # Deploy the application
 application s[:app_name] do
   action b['force_deploy'] ? :force_deploy : :deploy
-  rollback_on_error true
+  rollback_on_error false
   
   repository git_repo
   revision git_rev
