@@ -105,7 +105,7 @@ end
 
 # Cleanup cron task
 cron "metrics_instance_refresh" do
-  minute "0"
+  minute "0-59/2"
   command "/usr/bin/curl -X PUT http://127.0.0.1/instances/refresh"
 end
 
