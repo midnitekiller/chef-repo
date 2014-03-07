@@ -68,8 +68,12 @@
               "version":     "v1",
               "rights": [
                   { "description": "Instance God" },
-                  { "description": "Get a collection of Instances", "hyperlink": "self", "verb": "GET*" }
-                  { "description": "Get an Instance",               "hyperlink": "self", "verb": "GET" }
+                  { "description": "Get a collection of Instances", "hyperlink": "self", "verb": "GET*" },
+                  { "description": "Get an Instance",               "hyperlink": "self", "verb": "GET" },
+                  { "description": "Start an Instance",     "hyperlink": "start",     "verb": "PUT"},
+                  { "description": "Stop an Instance",      "hyperlink": "stop",      "verb": "PUT"},
+                  { "description": "Reboot an Instance",    "hyperlink": "reboot",    "verb": "PUT"},
+                  { "description": "Terminate an Instance", "hyperlink": "terminate", "verb": "DELETE"}
                 ]
             }
           ]}
