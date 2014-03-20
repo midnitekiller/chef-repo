@@ -5,6 +5,7 @@ run_list ["recipe[ocean]",
           "recipe[windows]",
           "recipe[java]",             # TeamCity doesn"t like OpenJDK 
           "recipe[7-zip-master]",
+          "recipe[teamcity-agent::curl]",
           "recipe[teamcity-agent::ruby-win]",
           "recipe[teamcity-agent::ruby-devkit-win]",
           "recipe[teamcity-agent::bundler-win]",
