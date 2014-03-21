@@ -2,7 +2,7 @@
 # Cookbook Name:: mail_service
 # Recipe:: rails
 #
-# Copyright 2013, Peter Bengtson
+# Copyright 2014, Peter Bengtson
 #
 # All rights reserved - Do Not Redistribute
 #
@@ -39,12 +39,12 @@ ocean_install_config_yml do
   app_dir  s[:app_dir]
   app_bag  b
   chef_env branch
-  extra    {'EMAIL_STEP_TIME'        => 30,
-            'EMAIL_POISON_LIMIT'     => 10,
-            'EMAIL_RETRY_BASE'       => 5.0,
-            'EMAIL_RETRY_MULTIPLIER' => 3.0,
-            'EMAIL_RETRY_EXPONENT'   => 3.0,
-            'ASYNC_JOB_VERSION'      => 'v1'
+  extra    {'EMAIL_STEP_TIME'        => b['email_step_time'],
+            'EMAIL_POISON_LIMIT'     => b['email_poison_limit'],
+            'EMAIL_RETRY_BASE'       => b['email_retry_base'],
+            'EMAIL_RETRY_MULTIPLIER' => b['email_retry_multiplier'],
+            'EMAIL_RETRY_EXPONENT'   => b['email_retry_exponent'],
+            'ASYNC_JOB_VERSION'      => b['async_job_version']
            }
 end
 

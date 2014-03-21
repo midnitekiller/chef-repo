@@ -1,0 +1,51 @@
+{ "id":                "mail_service",
+
+  "repo_url":          "https://SomeGitHubUser:TheirPassword@github.com/OceanDev/mail.git",
+  "repo_private_key":  null,
+
+  "web_server_role":   "mail_rails_server",
+  "service":           true,
+  "host_regexp":       null,
+  "path_regexp":       "/v[0-9]+/mails",
+  "tc_config_id":      "mail",
+  "force_deploy":      false,
+  
+  "db":                false,
+
+  "api_user_name":     "mail",
+
+  "defines_api_users": {
+
+    "mail": {
+      "real_name": "The Mail service user",
+      "email": "someone@example.com",
+      "passwords": {
+        "master":  "youMUSTchangethis",
+        "staging": "youMUSTchangethis",
+        "prod":    "youMUSTchangethis"
+      },
+      "indestructible": true
+    }
+  },
+
+  "structure": { 
+        "name":        "mail",
+        "description": "Asynchronous Mail service",
+        "resources": [
+            { "name": "mails",
+              "description": "Email sending",
+              "version":     "v1",
+              "rights": [
+                  { "description": "Mail God" },
+                  { "description": "Send email", "hyperlink": "self", "verb": "POST" },
+                  { "description": "Send email", "hyperlink": "send", "verb": "POST" }
+                ]
+            }
+          ]},
+  "email_step_time":        30,
+  "email_poison_limit":     10,
+  "email_retry_base":       5.0,
+  "email_retry_multiplier": 3.0,
+  "email_retry_exponent":   3.0,
+  "async_job_version":      "v1",  
+}
