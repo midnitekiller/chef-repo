@@ -39,13 +39,12 @@ ocean_install_config_yml do
   app_dir  s[:app_dir]
   app_bag  b
   chef_env branch
-  extra    {'EMAIL_STEP_TIME'        => b['email_step_time'],
+  extra    ({'EMAIL_STEP_TIME'        => b['email_step_time'],
             'EMAIL_POISON_LIMIT'     => b['email_poison_limit'],
             'EMAIL_RETRY_BASE'       => b['email_retry_base'],
             'EMAIL_RETRY_MULTIPLIER' => b['email_retry_multiplier'],
             'EMAIL_RETRY_EXPONENT'   => b['email_retry_exponent'],
-            'ASYNC_JOB_VERSION'      => b['async_job_version']
-           }
+            'ASYNC_JOB_VERSION'      => b['async_job_version']})
 end
 
 

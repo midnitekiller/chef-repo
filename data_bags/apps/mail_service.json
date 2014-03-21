@@ -37,8 +37,8 @@
               "version":     "v1",
               "rights": [
                   { "description": "Mail God" },
-                  { "description": "Send email", "hyperlink": "self", "verb": "POST" },
-                  { "description": "Send email", "hyperlink": "send", "verb": "POST" }
+                  { "description": "Send email",               "hyperlink": "self", "verb": "POST" },
+                  { "description": "Send email synchronously", "hyperlink": "send", "verb": "POST" }
                 ]
             }
           ]},
@@ -47,5 +47,5 @@
   "email_retry_base":       5.0,
   "email_retry_multiplier": 3.0,
   "email_retry_exponent":   3.0,
-  "async_job_version":      "v1",  
+  "async_job_version":      "v1" 
 }
