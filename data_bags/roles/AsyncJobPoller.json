@@ -1,0 +1,10 @@
+{ "id": "AsyncJobPoller",
+
+  "name":           "AsyncJobPoller",
+  "description":    "This role may poll AsyncJobs for changes in state.",
+  "indestructible": true,
+
+  "exclusive": true,
+  "rights":    ["jobs:async_jobs:self:GET:*:*"],
+  "api_users": []
+}

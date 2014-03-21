@@ -1,0 +1,10 @@
+{ "id": "AsyncJobPoster",
+
+  "name":           "AsyncJobPoster",
+  "description":    "This role may create new AsyncJobs.",
+  "indestructible": true,
+
+  "exclusive": true,
+  "rights":    ["jobs:async_jobs:self:POST:*:*"],
+  "api_users": ["mail"]
+}
