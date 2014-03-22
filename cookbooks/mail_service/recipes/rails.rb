@@ -47,6 +47,11 @@ ocean_install_config_yml do
             'ASYNC_JOB_VERSION'      => b['async_job_version']})
 end
 
+ocean_install_smtp_yml do
+  app_dir  s[:app_dir]
+  app_bag  b
+end
+
 
 # Deploy the application
 application s[:app_name] do
@@ -67,14 +72,15 @@ application s[:app_name] do
   purge_before_symlink [".git", ".gitignore", ".idea", ".rspec", 
                         "doc", "log", "README.rdoc", "MIT-LICENSE", "spec",
                         "config/initializers/ocean_constants.rb",
-                        "config/config.yml"
+                        "config/config.yml", "config/smtp.yml"
                         ]
 
   create_dirs_before_symlink ["tmp"]
 
   symlink_before_migrate({"log"                => "log",
                           "ocean_constants.rb" => "config/initializers/ocean_constants.rb",
-                          "config.yml"         => "config/config.yml"
+                          "config.yml"         => "config/config.yml",
+                          "smtp.yml"           => "config/smtp.yml"
                          })
   
   rails do
@@ -84,9 +90,6 @@ application s[:app_name] do
     database(db_config) if db_config
   end
   
-  #migration_command "bundle exec rake db:create"
-  #migrate true if db_config
-
   passenger_apache2 do
     webapp_template "rails_service.conf.erb"
     params(:app_dir => s[:app_dir])

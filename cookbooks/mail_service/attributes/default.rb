@@ -6,6 +6,3 @@ default[:mail_service][:app_dir]       = "#{node.ocean.rails_apps_dir}/#{node.ma
 
 default[:mail_service][:shared_dirs]   = ["log"]
 default[:mail_service][:extra_shared_dirs] = []
-
-
-default[:mail_service][:async_workers_dir] = "/var/run/async_workers"
