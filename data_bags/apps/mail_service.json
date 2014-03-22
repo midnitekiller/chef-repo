@@ -47,5 +47,12 @@
   "email_retry_base":       5.0,
   "email_retry_multiplier": 3.0,
   "email_retry_exponent":   3.0,
-  "async_job_version":      "v1" 
+  "async_job_version":      "v1",
+  "smtp": {
+    "address": "YourEmailSMTPHostHere",
+    "port": 25,
+    "user_name": "TheUsername",
+    "password": "ThePassword",
+    "authentication": "login"
+  }
 }
